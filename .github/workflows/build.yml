@@ -1,0 +1,23 @@
+name: build
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+        name: Build and Test
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+            matrix:
+                os: [ ubuntu-latest, windows-latest ]
+
+        steps:
+            - name: Get the source
+              uses: actions/checkout@v2
+            - name: Restore the dependencies
+              run: npm ci
+            - name: Build
+              run: npm run all
