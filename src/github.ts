@@ -2,7 +2,7 @@ import * as github from '@actions/github'
 import * as version from './version'
 import * as markdown from './markdown'
 
-export aync function createReleaseDraft(versionTag: string, repoToken: string, changeLog: string): Promise<string>{
+export async function createReleaseDraft(versionTag: string, repoToken: string, changeLog: string): Promise<string>{
 
     const octokit = new github.GitHub(repoToken)
 
@@ -12,7 +12,7 @@ export aync function createReleaseDraft(versionTag: string, repoToken: string, c
         tag_name: versionTag,
         name: version.removePrefix(versionTag),
         body: markdown.toUnorderList(changeLog),
-        prerelease: version.isPrerelease(versionTag,
+        prerelease: version.isPrerelease(versionTag),
         draft: true)
     })
   
