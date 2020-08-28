@@ -4,7 +4,7 @@ export function isSemVer(version: string): boolean {
     return semver.valid(version) !== null
 }
 
-export function isPrerelease(version; string): boolean {
+export function isPrerelease(version: string): boolean {
     return semver.prerelease(version) !== null;
 }
 

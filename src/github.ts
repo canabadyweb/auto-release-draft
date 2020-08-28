@@ -13,7 +13,7 @@ export async function createReleaseDraft(versionTag: string, repoToken: string, 
         name: version.removePrefix(versionTag),
         body: markdown.toUnorderList(changeLog),
         prerelease: version.isPrerelease(versionTag),
-        draft: true)
+        draft: true
     })
   
     if( response.status != 201 )
@@ -23,5 +23,5 @@ export async function createReleaseDraft(versionTag: string, repoToken: string, 
 
     core.info(`Create release draft ${response.data.name}`)
 
-    return reponse.data.html_url
+    return response.data.html_url
 }
