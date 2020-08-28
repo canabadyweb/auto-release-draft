@@ -1,6 +1,10 @@
 name: Auto Draft Release
 description: 'Drafts a GitHub Release with the version tag change'
 author: 'Selva Canabady'
+inputs:
+    repo-token:
+        description: 'GITHUB_TOKEN to auth the current workflow'
+        required: true
 outputs:
     release-url:
         description: 'The URL of the GitHub release that was drafted'
