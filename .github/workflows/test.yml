@@ -16,7 +16,7 @@ jobs:
 
         steps:
             - name: Get the source
-              uses: actions/checkout@v1
+              uses: actions/checkout@v2
             - name: Create a release draft for a version tag
               id: create-release-draft
               uses: ./
